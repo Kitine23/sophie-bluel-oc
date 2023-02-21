@@ -9,6 +9,8 @@ getWorks().then((works) => {
   // Pour chaque travail, ajouter les données au DOM
   works.forEach((work) => {
     //Création d'une balise dédiée à un travail
-    sectionGallery.innerHTML += createWorkElement(work.imageUrl, work.title)
+    const workElement = createWorkElement(work.imageUrl, work.title)
+    //Ajout de la balise figure à la gallerie
+    sectionGallery.appendChild(workElement)
   })
 })
