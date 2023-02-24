@@ -252,18 +252,21 @@ li:hover {
   padding-bottom: 3rem;
 }
 
-.btn-filter:hover {
-  background-color: #1d6154;
-  color: white;
-}
 .btn-filter {
   font-family: 'Syne';
+  cursor: pointer;
   color: #1d6154;
   background-color: white;
   margin: 0.2rem;
   padding: 0.5rem;
   text-align: center;
   border-radius: 2rem;
+  border: thin solid #1d6154;
+}
+
+.btn-filter:hover {
+  background-color: #1d6154;
+  color: white;
 }
 
 input[type='submit'] {
