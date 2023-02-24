@@ -1,5 +1,5 @@
 import { getWorks, getCategories } from './api.js'
-import { createCategoryElement, createAllWorks } from './dom.js'
+import { createAllWorks, createCategoryElement } from './dom.js'
 
 //Gestion des filtres
 async function filterWorks() {
@@ -8,7 +8,7 @@ async function filterWorks() {
 
   // Récupérer des travaux depuis l'API
   const works = await getWorks()
-  createAllWorks(works) // Ajoute au chargement tous les travaux
+  createAllWorks(works) //Ajoute au chargement tous les travaux
 
   // Récupérer des catégories depuis l'API
   const categories = await getCategories()
