@@ -36,6 +36,10 @@ export function createCategoryElement(category, works) {
     if (category.name === 'Tous') {
       return createAllWorks(works)
     }
+    const filteredWorks = works.filter(
+      (work) => work.categoryId === category.id
+    )
+    return createAllWorks(filteredWorks)
   })
   return buttonElement
 }
