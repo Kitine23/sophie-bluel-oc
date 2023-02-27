@@ -128,15 +128,17 @@ table {
   border-spacing: 0;
 }
 /** end reset css**/
-html {
-  scroll-behavior: smooth;
-}
 body {
   max-width: 1140px;
   margin: auto;
   font-family: 'Work Sans';
   font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
+
 header {
   display: flex;
   justify-content: space-between;
@@ -177,6 +179,10 @@ nav li {
   font-size: 1.2em;
 }
 
+li:hover {
+  color: #b1663c;
+}
+
 li a {
   text-decoration: none;
   color: black;
@@ -186,100 +192,35 @@ li a:hover {
   color: #b1663c;
 }
 
-li:hover {
-  color: #b1663c;
-}
-
-#introduction {
-  display: flex;
-  align-items: center;
-}
-#introduction figure {
-  flex: 1;
-}
-#introduction img {
-  display: block;
-  margin: auto;
-  width: 80%;
-}
-
-#introduction article {
-  flex: 1;
-}
-#introduction h2 {
-  margin-bottom: 1em;
-}
-
-#introduction p {
-  margin-bottom: 0.5em;
-}
-#portfolio h2 {
-  text-align: center;
-  margin-bottom: 1em;
-}
-.gallery {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-}
-
-.gallery img {
-  width: 100%;
-}
-#contact {
+#login {
   width: 50%;
-  margin: auto;
+  margin: 0 auto 15rem;
 }
-#contact > * {
+
+#login > * {
   text-align: center;
 }
-#contact h2 {
+
+#login h2 {
   margin-bottom: 20px;
 }
-#contact form {
+
+#login form {
   text-align: left;
   margin-top: 30px;
   display: flex;
   flex-direction: column;
 }
 
-#contact input {
+#login input {
   height: 50px;
   font-size: 1.2em;
   border: none;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
-#contact label {
+
+#login label {
   margin: 2em 0 1em 0;
-}
-#contact textarea {
-  border: none;
-  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
-
-.categories {
-  display: flex;
-  justify-content: center;
-  padding-bottom: 3rem;
-}
-
-.btn-filter {
-  font-family: 'Syne';
-  cursor: pointer;
-  color: #1d6154;
-  background-color: white;
-  margin: 0.2rem;
-  padding: 0.5rem;
-  text-align: center;
-  border-radius: 2rem;
-  border: thin solid #1d6154;
-}
-
-.btn-filter:hover {
-  background-color: #1d6154;
-  color: white;
 }
 
 input[type='submit'] {
@@ -291,6 +232,12 @@ input[type='submit'] {
   width: 180px;
   text-align: center;
   border-radius: 60px;
+}
+
+p {
+  text-decoration: underline;
+  display: flex;
+  justify-content: center;
 }
 
 footer nav ul {
