@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=  , initial-scale=1.0" />
+    <title>Tutoriel modal</title>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/modal.css" />
+    <script type="module" src="js/modal.js"></script>
+  </head>
+  <body>
+    <button id="btn-open-modal">Ouvrir la boîte modal</button>
+
+    <aside
+      id="modal-works"
+      class="modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-labelledby="pictures-gallery"
+      style="display: none"
+    >
+      <div class="modal-wrapper">
+        <button id="btn-close-modal" aria-label="Fermer la modale">
+          <img
+            src="assets/icons/cancel.svg"
+            alt="cancel-icon"
+            width="32"
+            height="32"
+          />
+        </button>
+        <h1 id="pictures-gallery">Galerie photo</h1>
+        J'en ai marre. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+        Molestias tenetur eius ipsam dolorum perspiciatis accusantium eaque,
+        sapiente tempora quibusdam velit atque dolorem asperiores? Commodi ipsa
+        error ad reiciendis ipsam similique?
+      </div>
+    </aside>
+  </body>
+</html>
