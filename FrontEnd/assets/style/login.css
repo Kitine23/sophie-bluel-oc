@@ -192,6 +192,12 @@ li a:hover {
   color: #b1663c;
 }
 
+#error-login {
+  color: red;
+  padding-top: 0.5rem;
+  display: none;
+}
+
 #login {
   width: 50%;
   margin: 0 auto 15rem;
