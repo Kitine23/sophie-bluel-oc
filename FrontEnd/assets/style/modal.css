@@ -1,0 +1,69 @@
+.modal {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.modal-wrapper {
+  position: relative;
+  overflow: auto;
+  width: 39.375rem; /*630px*/
+  max-width: calc(100vw - 1rem);
+  max-height: calc(100vh - 1rem);
+  height: 45.688rem; /*731px*/
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+#btn-close-modal {
+  border: none;
+  background-color: #ffffff;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  cursor: pointer;
+}
+
+#btn-close-modal img {
+  color: #000000;
+  height: 12px;
+  width: 12px;
+}
+
+#pictures-gallery {
+  color: #000000;
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.625rem; /*26px*/
+  line-height: 1.875rem; /*30px*/
+  text-align: center;
+  padding-top: 2rem;
+}
+
+hr.line {
+  border: 1px thin #b3b3b3;
+  width: 26.25rem; /*420px*/
+  margin-top: auto;
+}
+
+.modal-wrapper input[type='submit'] {
+  padding: 0.5rem 0.25rem 0.5rem 0.25rem;
+  border: none;
+}
+
+.modal-wrapper p {
+  display: flex;
+  justify-content: center;
+  color: #d65353;
+  padding-bottom: 2rem;
+}

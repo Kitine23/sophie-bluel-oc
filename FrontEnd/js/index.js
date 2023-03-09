@@ -1,5 +1,6 @@
 import { getWorks, getCategories } from './api.js'
 import { createAllWorks, createCategoryElement } from './dom.js'
+import { loadModal } from './modal.js'
 
 //Gestion des filtres
 async function filterWorks() {
@@ -28,3 +29,4 @@ async function filterWorks() {
 }
 
 filterWorks()
+loadModal()
