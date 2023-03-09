@@ -12,6 +12,7 @@
     />
     <meta name="description" content="" />
     <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/style/modal.css" />
     <script src="js/index.js" type="module"></script>
   </head>
   <body>
@@ -30,6 +31,17 @@
       <section id="introduction">
         <figure>
           <img src="./assets/images/sophie-bluel.png" alt="" />
+          <figcaption>
+            <button class="btn-edit">
+              <img
+                src="assets/icons/edit.svg"
+                alt="edit-icon"
+                width="14"
+                height="14"
+              />
+              modifier
+            </button>
+          </figcaption>
         </figure>
         <article>
           <h2>Designer d'espace</h2>
@@ -52,6 +64,16 @@
       </section>
       <section id="portfolio">
         <h2>Mes Projets</h2>
+        <button id="btn-open-modal" class="btn-edit">
+          <img
+            src="assets/icons/edit.svg"
+            alt="edit-icon"
+            width="14"
+            height="14"
+          />
+          modifier
+        </button>
+
         <div class="categories"></div>
         <div class="gallery"></div>
       </section>
@@ -77,5 +99,30 @@
         </ul>
       </nav>
     </footer>
+
+    <!-- modal -->
+    <aside
+      id="modal-works"
+      class="modal"
+      aria-hidden="true"
+      role="dialog"
+      aria-labelledby="pictures-gallery"
+      style="display: none"
+    >
+      <div class="modal-wrapper">
+        <button id="btn-close-modal" aria-label="Fermer la modale">
+          <img
+            src="assets/icons/cancel.svg"
+            alt="cancel-icon"
+            width="12"
+            height="12"
+          />
+        </button>
+        <h2 id="pictures-gallery">Galerie photo</h2>
+        <hr class="line" />
+        <input type="submit" value="Ajouter une photo" />
+        <p>Supprimer la galerie</p>
+      </div>
+    </aside>
   </body>
 </html>
