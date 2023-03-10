@@ -219,9 +219,12 @@ li:hover {
 #introduction p {
   margin-bottom: 0.5em;
 }
+#portfolio {
+  padding-top: 2rem;
+}
+
 #portfolio h2 {
   text-align: center;
-  margin-bottom: 1em;
 }
 .gallery {
   width: 100%;
@@ -303,4 +306,28 @@ footer nav ul {
   display: flex;
   justify-content: flex-end;
   margin: 2em;
+}
+
+.btn-edit {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0;
+  cursor: pointer;
+}
+
+figcaption:has(.btn-edit) {
+  width: 80%;
+  margin: auto;
+}
+
+#portfolio .portfolio-edit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 2rem;
+  padding-left: 5rem;
 }
