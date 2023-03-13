@@ -43,3 +43,10 @@ export function createCategoryElement(category, works) {
   })
   return buttonElement
 }
+
+export function createHTMLElement(tagName, attributes = {}, ...children) {
+  const el = document.createElement(tagName)
+  Object.keys(attributes).forEach((attr) => (el[attr] = attributes[attr]))
+  children && el.append(...children)
+  return el
+}

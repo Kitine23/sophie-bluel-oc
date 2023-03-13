@@ -11,3 +11,10 @@ export async function getCategories() {
   })
   return response.json()
 }
+
+export async function deleteWorks(id) {
+  const response = await fetch(`http://localhost:5678/api/works/${id}`, {
+    method: 'DELETE',
+  })
+  return response.json()
+}

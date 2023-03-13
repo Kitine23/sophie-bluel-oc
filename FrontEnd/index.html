@@ -2,7 +2,6 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <title>Sophie Bluel - Architecte d'intérieur</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,15 +13,29 @@
     <link rel="stylesheet" href="assets/style.css" />
     <link rel="stylesheet" href="assets/style/modal.css" />
     <script src="js/index.js" type="module"></script>
+    <title>Sophie Bluel - Architecte d'intérieur</title>
   </head>
   <body>
+    <aside id="edit-banner">
+      <button class="btn-edit">
+        <img
+          src="assets/icons/edit-white.svg"
+          alt="edit icon"
+          width="24"
+          height="24"
+        />
+        Mode édition
+      </button>
+      <button class="edit-change">publier les changements</button>
+    </aside>
     <header>
       <h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
       <nav>
         <ul>
           <li><a href="#portfolio">projets</a></li>
           <li><a href="#contact">contact</a></li>
-          <li><a href="login.html">login</a></li>
+          <li id="login-link"><a href="login.html">login</a></li>
+          <li id="logout-link"><a href="#">logout</a></li>
           <li><img src="./assets/icons/instagram.png" alt="Instagram" /></li>
         </ul>
       </nav>
@@ -121,6 +134,7 @@
           />
         </button>
         <h2 id="pictures-gallery">Galerie photo</h2>
+        <div class="modal-works"></div>
         <hr class="line" />
         <input type="submit" value="Ajouter une photo" />
         <p>Supprimer la galerie</p>

@@ -29,4 +29,25 @@ async function filterWorks() {
 }
 
 filterWorks()
-loadModal()
+
+// gestion du mode édition
+if (localStorage.getItem('api-token')) {
+  loadModal()
+
+  const loginLinkElt = document.querySelector('#login-link')
+  const logoutLinkElt = document.querySelector('#logout-link')
+  const editBannerElt = document.querySelector('#edit-banner')
+  const btnEditElts = Array.from(document.querySelectorAll('.btn-edit'))
+  const categorieElt = document.querySelector('.categories')
+
+  loginLinkElt.style.display = 'none'
+  logoutLinkElt.style.display = 'block'
+  editBannerElt.style.display = 'flex'
+  btnEditElts.forEach((btnElt) => (btnElt.style.display = 'flex'))
+  categorieElt.style.display = 'none'
+
+  logoutLinkElt.addEventListener('click', () => {
+    localStorage.removeItem('api-token')
+    window.location.replace('index.html')
+  })
+}

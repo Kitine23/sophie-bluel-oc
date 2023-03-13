@@ -1,19 +1,61 @@
+import { getWorks } from './api.js'
+import { createHTMLElement } from './dom.js'
+
 export function loadModal() {
   const modalElt = document.querySelector('#modal-works')
   const modalWrapperElt = modalElt.querySelector('.modal-wrapper')
+  const modalWorksElt = modalElt.querySelector('.modal-works')
   const btnOpenElt = document.querySelector('#btn-open-modal')
   const btnCloseElt = modalElt.querySelector('#btn-close-modal')
 
-  const openModal = () => {
+  const openModal = async () => {
     modalElt.style.display = null
     modalElt.removeAttribute('aria-hidden')
     modalElt.setAttribute('aria-modal', 'true')
+    document.body.className = 'modal-disable-scroll'
+
+    // charger les travaux
+    const works = await getWorks()
+
+    works.forEach((work) => {
+      modalWorksElt.appendChild(
+        createHTMLElement(
+          'figure',
+          undefined,
+          createHTMLElement('img', { src: work.imageUrl }),
+          createHTMLElement(
+            'div',
+            { className: 'icons' },
+            createHTMLElement(
+              'button',
+              { onclick: () => console.log('remove') },
+              createHTMLElement('img', {
+                src: 'assets/icons/trash-white.svg',
+                alt: 'trash icon',
+                with: '20',
+                height: '20',
+              })
+            )
+          ),
+          createHTMLElement(
+            'figcaption',
+            undefined,
+            createHTMLElement(
+              'button',
+              { onclick: () => console.log('click') },
+              'éditer'
+            )
+          )
+        )
+      )
+    })
   }
 
   const closeModal = () => {
     modalElt.style.display = 'none'
     modalElt.setAttribute('aria-hidden', 'true')
     modalElt.removeAttribute('aria-modal')
+    document.body.className = ''
   }
 
   modalElt.addEventListener('click', closeModal)
