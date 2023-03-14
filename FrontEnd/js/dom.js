@@ -44,9 +44,10 @@ export function createCategoryElement(category, works) {
   return buttonElement
 }
 
+// https://stackoverflow.com/questions/43168284/javascript-createelement-function
 export function createHTMLElement(tagName, attributes = {}, ...children) {
   const el = document.createElement(tagName)
   Object.keys(attributes).forEach((attr) => (el[attr] = attributes[attr]))
-  children && el.append(...children)
+  if (children) el.append(...children)
   return el
 }

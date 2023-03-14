@@ -30,10 +30,10 @@ export function loadModal() {
               'button',
               { onclick: () => console.log('remove') },
               createHTMLElement('img', {
-                src: 'assets/icons/trash-white.svg',
+                src: 'assets/icons/trash.svg',
                 alt: 'trash icon',
-                with: '20',
-                height: '20',
+                with: '16',
+                height: '16',
               })
             )
           ),
@@ -56,6 +56,7 @@ export function loadModal() {
     modalElt.setAttribute('aria-hidden', 'true')
     modalElt.removeAttribute('aria-modal')
     document.body.className = ''
+    modalWorksElt.innerHTML = ''
   }
 
   modalElt.addEventListener('click', closeModal)
