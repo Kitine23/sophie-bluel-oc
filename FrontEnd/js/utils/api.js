@@ -12,9 +12,13 @@ export async function getCategories() {
   return response.json()
 }
 
-export async function deleteWorks(id) {
+export async function deleteWork(id) {
+  const token = localStorage.getItem('api-token')
   const response = await fetch(`http://localhost:5678/api/works/${id}`, {
     method: 'DELETE',
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
   })
-  return response.json()
+  return response.status
 }

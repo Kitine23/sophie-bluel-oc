@@ -1,5 +1,5 @@
-import { getWorks } from './api.js'
-import { createHTMLElement } from './dom.js'
+import { getWorks } from '../utils/api.js'
+import { WorkCardEdit } from './WorkCardEdit.js'
 
 export function loadModal() {
   const modalElt = document.querySelector('#modal-works')
@@ -18,36 +18,7 @@ export function loadModal() {
     const works = await getWorks()
 
     works.forEach((work) => {
-      modalWorksElt.appendChild(
-        createHTMLElement(
-          'figure',
-          undefined,
-          createHTMLElement('img', { src: work.imageUrl }),
-          createHTMLElement(
-            'div',
-            { className: 'icons' },
-            createHTMLElement(
-              'button',
-              { onclick: () => console.log('remove') },
-              createHTMLElement('img', {
-                src: 'assets/icons/trash.svg',
-                alt: 'trash icon',
-                with: '16',
-                height: '16',
-              })
-            )
-          ),
-          createHTMLElement(
-            'figcaption',
-            undefined,
-            createHTMLElement(
-              'button',
-              { onclick: () => console.log('click') },
-              'éditer'
-            )
-          )
-        )
-      )
+      modalWorksElt.appendChild(WorkCardEdit(work))
     })
   }
 
