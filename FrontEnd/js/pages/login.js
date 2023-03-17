@@ -1,3 +1,5 @@
+import { getLoginToken } from '../utils/api.js'
+
 if (localStorage.getItem('api-token')) window.location.replace('index.html')
 
 const formElt = document.querySelector('form')
@@ -7,17 +9,10 @@ formElt.addEventListener('submit', async (event) => {
 
   const data = new FormData(formElt)
 
-  const response = await fetch('http://localhost:5678/api/users/login', {
-    method: 'POST',
-    body: JSON.stringify({
-      email: data.get('email'),
-      password: data.get('password'),
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
+  const result = await getLoginToken({
+    email: data.get('email'),
+    password: data.get('password'),
   })
-  const result = await response.json()
 
   if (!response.ok) {
     const errorSpanEl = document.querySelector('#error-login')

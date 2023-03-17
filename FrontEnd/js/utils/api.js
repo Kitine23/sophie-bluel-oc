@@ -5,6 +5,18 @@ export async function getWorks() {
   return response.json()
 }
 
+export async function createWork(body) {
+  const token = localStorage.getItem('api-token')
+  const response = await fetch('http://localhost:5678/api/works', {
+    method: 'POST',
+    body,
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  })
+  return response.json()
+}
+
 export async function getCategories() {
   const response = await fetch('http://localhost:5678/api/categories', {
     method: 'GET',
@@ -21,4 +33,15 @@ export async function deleteWork(id) {
     },
   })
   return response.status
+}
+
+export async function getLoginToken(data) {
+  const response = await fetch('http://localhost:5678/api/users/login', {
+    method: 'POST',
+    body: JSON.stringify(data),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+  return response.json()
 }

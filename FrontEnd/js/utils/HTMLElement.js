@@ -52,3 +52,31 @@ export function figcaption(...params) {
 export function button(...params) {
   return createHTMLElement('button', ...params)
 }
+
+export function form(...params) {
+  return createHTMLElement('form', ...params)
+}
+
+export function h2(...params) {
+  return createHTMLElement('h2', ...params)
+}
+
+export function hr(...params) {
+  return createHTMLElement('hr', ...params)
+}
+
+export function input(...params) {
+  return createHTMLElement('input', ...params)
+}
+
+export function label(...params) {
+  return createHTMLElement('label', ...params)
+}
+
+export function select(...params) {
+  return createHTMLElement('select', ...params)
+}
+
+export function option(...params) {
+  return createHTMLElement('option', ...params)
+}
