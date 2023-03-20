@@ -5,6 +5,8 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
+    "db:reset": "cp database.archive.sqlite database.sqlite",
+    "pic:dl": "wget -q -O ./../Frontend/assets/images/pic-$RANDOM.jpg \"https://unsplash.it/610/814?random\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

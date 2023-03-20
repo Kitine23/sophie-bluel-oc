@@ -14,7 +14,7 @@ formElt.addEventListener('submit', async (event) => {
     password: data.get('password'),
   })
 
-  if (!response.ok) {
+  if (!result?.token) {
     const errorSpanEl = document.querySelector('#error-login')
     errorSpanEl.style.display = 'block'
     errorSpanEl.textContent = 'Adresse email et/ou mot de passe incorrect'
