@@ -61,7 +61,7 @@ export async function AddWorkForm() {
     } else {
       pEl.textContent = 'Le projet a bien été envoyé'
       pEl.style.color = '#1d6154'
-      // recharge les projets dynamiquement sur la page principale.
+      // recharge les projets dynamiquement sur la page principale
       const works = await getWorks()
       createAllWorks(works)
     }

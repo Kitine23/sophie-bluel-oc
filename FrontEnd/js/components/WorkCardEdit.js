@@ -1,4 +1,5 @@
-import { deleteWork } from '../utils/api.js'
+import { deleteWork, getWorks } from '../utils/api.js'
+import { createAllWorks } from '../utils/dom.js'
 import { button, div, figcaption, figure, img } from '../utils/HTMLElement.js'
 
 export function WorkCardEdit(work) {
@@ -12,6 +13,9 @@ export function WorkCardEdit(work) {
     }
 
     figureEl.remove()
+    // recharge les projets dynamiquement sur la page principale
+    const works = await getWorks()
+    createAllWorks(works)
   }
 
   figureEl.append(
