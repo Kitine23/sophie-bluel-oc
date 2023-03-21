@@ -39,16 +39,17 @@
   border: none;
   background-color: transparent;
   position: absolute;
-  top: 1rem;
   cursor: pointer;
 }
 
 #btn-close-modal {
-  right: 1rem;
+  right: 2rem;
+  top: 2rem;
 }
 
 #btn-go-back {
-  left: 1rem;
+  left: 1.5rem;
+  top: 1.5rem;
   display: none;
 }
 
@@ -93,7 +94,6 @@ hr.line {
   font-family: 'Syne';
   text-align: center;
   font-style: normal;
-  font-weight: 400;
 }
 
 .modal-works {
@@ -103,7 +103,7 @@ hr.line {
   grid-auto-rows: 1fr;
   gap: 0.5rem;
   width: auto;
-  padding: 5rem;
+  padding: 1rem 5rem;
 }
 
 .modal-works img {
@@ -146,11 +146,11 @@ hr.line {
 }
 
 .modal-body form .work-infos {
-  padding-bottom: 2rem;
+  padding-bottom: 1rem;
 }
 
 .modal-body form .work-picture {
-  margin: 1rem;
+  margin: 0.5rem;
   padding: 1.5rem;
   background: #e8f1f6;
   width: 26.25rem;
