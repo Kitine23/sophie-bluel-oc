@@ -13,6 +13,11 @@ import {
 } from '../utils/HTMLElement.js'
 
 export async function AddWorkForm() {
+  const imgPreviewElt = img({
+    className: 'uploaded-picture',
+  })
+  imgPreviewElt.style.display = 'none'
+
   const categories = await getCategories()
 
   const options = categories.map((category) => {
@@ -21,6 +26,7 @@ export async function AddWorkForm() {
 
   // https://stackoverflow.com/a/66472691
   const handleFormChange = (e) => {
+    // validation du formulaire
     const fields = Array.from(
       e.currentTarget.querySelectorAll('input:invalid,select:invalid')
     )
@@ -29,6 +35,16 @@ export async function AddWorkForm() {
     fields.length > 0
       ? submit.setAttribute('disabled', 'disabled')
       : submit.removeAttribute('disabled')
+
+    // affichage de l'image uploadée
+    // https://stackoverflow.com/a/4459419
+    if (e.target.name === 'image' && e.target.files) {
+      const [file] = e.target.files
+      if (file) {
+        imgPreviewElt.style.display = 'block'
+        imgPreviewElt.src = URL.createObjectURL(file)
+      }
+    }
   }
 
   const handleFormSubmit = async (e) => {
@@ -62,13 +78,22 @@ export async function AddWorkForm() {
         width: '58',
         height: '46',
       }),
+      //https://stackoverflow.com/a/25825731
+      label(
+        {
+          htmlFor: 'file-upload',
+        },
+        '+ Ajouter photo'
+      ),
       input({
+        id: 'file-upload',
         type: 'file',
         name: 'image',
         accept: 'image/png, image/jpeg',
         required: true,
       }),
-      p({}, 'jpg, png : 4mo max')
+      p({}, 'jpg, png : 4mo max'),
+      imgPreviewElt
     ),
     div(
       { className: 'work-infos' },
