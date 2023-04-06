@@ -1,5 +1,7 @@
+const API_HOST = 'http://localhost:5678/api'
+
 export async function getWorks() {
-  const response = await fetch('http://localhost:5678/api/works', {
+  const response = await fetch(`${API_HOST}/works`, {
     method: 'GET',
   })
   return response.json()
@@ -7,7 +9,7 @@ export async function getWorks() {
 
 export async function createWork(body) {
   const token = localStorage.getItem('api-token')
-  const response = await fetch('http://localhost:5678/api/works', {
+  const response = await fetch(`${API_HOST}/works`, {
     method: 'POST',
     body,
     headers: {
@@ -18,7 +20,7 @@ export async function createWork(body) {
 }
 
 export async function getCategories() {
-  const response = await fetch('http://localhost:5678/api/categories', {
+  const response = await fetch(`${API_HOST}/categories`, {
     method: 'GET',
   })
   return response.json()
@@ -26,7 +28,7 @@ export async function getCategories() {
 
 export async function deleteWork(id) {
   const token = localStorage.getItem('api-token')
-  const response = await fetch(`http://localhost:5678/api/works/${id}`, {
+  const response = await fetch(`${API_HOST}/works/${id}`, {
     method: 'DELETE',
     headers: {
       Authorization: `Bearer ${token}`,
@@ -36,7 +38,7 @@ export async function deleteWork(id) {
 }
 
 export async function getLoginToken(data) {
-  const response = await fetch('http://localhost:5678/api/users/login', {
+  const response = await fetch(`${API_HOST}/users/login`, {
     method: 'POST',
     body: JSON.stringify(data),
     headers: {
