@@ -4,6 +4,8 @@ export async function getWorks() {
   const response = await fetch(`${API_HOST}/works`, {
     method: 'GET',
   })
+  if (!response.ok()) return []
+
   return response.json()
 }
 
@@ -16,6 +18,8 @@ export async function createWork(body) {
       Authorization: `Bearer ${token}`,
     },
   })
+  if (!response.ok()) return null
+
   return response.json()
 }
 
@@ -23,6 +27,7 @@ export async function getCategories() {
   const response = await fetch(`${API_HOST}/categories`, {
     method: 'GET',
   })
+  if (!response.ok()) return []
   return response.json()
 }
 
@@ -34,6 +39,8 @@ export async function deleteWork(id) {
       Authorization: `Bearer ${token}`,
     },
   })
+  if (!response.ok()) return null
+
   return response.status
 }
 
@@ -45,5 +52,6 @@ export async function getLoginToken(data) {
       'Content-Type': 'application/json',
     },
   })
+  if (!response.ok()) return null
   return response.json()
 }

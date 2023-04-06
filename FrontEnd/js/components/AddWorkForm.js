@@ -55,7 +55,7 @@ export async function AddWorkForm() {
 
     const pEl = e.target.querySelector('.form-result')
 
-    if (createdWork?.error) {
+    if (!createdWork || createdWork?.error) {
       pEl.textContent = 'Une erreur est survenue, impossible de créer le projet'
       pEl.style.color = '#d65353'
     } else {
