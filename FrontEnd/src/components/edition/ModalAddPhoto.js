@@ -1,5 +1,4 @@
-import { getCategories, createWork, getWorks } from '../utils/api.js'
-import { createAllWorks } from '../utils/dom.js'
+import { getCategories, createWork } from '../../utils/api.js'
 import {
   div,
   form,
@@ -11,9 +10,14 @@ import {
   label,
   select,
   option,
-} from '../utils/HTMLElement.js'
+} from '../../utils/HTMLElement.js'
+import { WorksGallery } from '../works/WorksGallery.js'
 
-export async function AddWorkForm() {
+export async function ModalAddPhoto() {
+  const modalBodyElt = document.querySelector('#modal-works .modal-body')
+  const btnGoBackElt = document.querySelector('#btn-go-back')
+  btnGoBackElt.style.display = 'block'
+
   const imgPreviewElt = img({
     className: 'uploaded-picture',
   })
@@ -51,24 +55,23 @@ export async function AddWorkForm() {
   const handleFormSubmit = async (e) => {
     e.preventDefault()
 
-    const createdWork = await createWork(new FormData(e.currentTarget))
+    const result = await createWork(new FormData(e.currentTarget))
 
     const pEl = e.target.querySelector('.form-result')
 
-    if (!createdWork || createdWork?.error) {
+    if (!result || result?.error) {
       pEl.textContent = 'Une erreur est survenue, impossible de créer le projet'
       pEl.style.color = '#d65353'
     } else {
       pEl.textContent = 'Le projet a bien été envoyé'
       pEl.style.color = '#1d6154'
       // recharge les projets dynamiquement sur la page principale
-      const works = await getWorks()
-      createAllWorks(works)
+      WorksGallery()
     }
     pEl.style.display = 'block'
   }
 
-  return form(
+  const formElt = form(
     {
       onsubmit: handleFormSubmit,
       onchange: handleFormChange,
@@ -126,4 +129,6 @@ export async function AddWorkForm() {
       disabled: true,
     })
   )
+
+  modalBodyElt.replaceChildren(formElt)
 }

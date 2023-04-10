@@ -1,5 +1,5 @@
-import { WorkCard } from '../components/WorkCard.js'
-import { getWorks } from '../utils/api.js'
+import { WorkCard } from './WorkCard.js'
+import { getWorks } from '../../utils/api.js'
 
 export async function WorksGallery(categoryId = 0) {
   // Récupérer les projets depuis l'API

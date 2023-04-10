@@ -15,6 +15,43 @@ export async function getWorks() {
   }
 }
 
+export async function createWork(body) {
+  try {
+    const token = localStorage.getItem('api-token')
+    const response = await fetch(`${API_HOST}/works`, {
+      method: 'POST',
+      body,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    if (!response.ok) throw API_CONNECTION_ERROR
+
+    return response.json()
+  } catch (error) {
+    console.error(error)
+    return null
+  }
+}
+
+export async function deleteWork(id) {
+  try {
+    const token = localStorage.getItem('api-token')
+    const response = await fetch(`${API_HOST}/works/${id}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    if (!response.ok) throw API_CONNECTION_ERROR
+
+    return response.status
+  } catch (error) {
+    console.error(error)
+    return 500
+  }
+}
+
 export async function getCategories() {
   try {
     const response = await fetch(`${API_HOST}/categories`, {

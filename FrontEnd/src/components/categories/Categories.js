@@ -1,4 +1,4 @@
-import { getCategories } from '../utils/api.js'
+import { getCategories } from '../../utils/api.js'
 import { CategoryButton } from './CategoryButton.js'
 
 export async function Categories() {
