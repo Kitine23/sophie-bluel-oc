@@ -22,7 +22,7 @@ formElt.addEventListener('submit', async (event) => {
   if (!result?.token) {
     const errorSpanEl = document.querySelector('#error-login')
     errorSpanEl.style.display = 'block'
-    errorSpanEl.textContent = 'Adresse email et/ou mot de passe incorrect'
+    errorSpanEl.textContent = 'Erreur dans l’identifiant ou le mot de passe'
   } else {
     // Si le token existe, on le stocke dans le local storage
     localStorage.setItem('api-token', result.token)
