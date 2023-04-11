@@ -23,8 +23,8 @@ export async function ModalAddPhoto() {
   })
   imgPreviewElt.style.display = 'none'
 
+  // créer les options du select des catégories à partir de l'API
   const categories = await getCategories()
-
   const options = categories.map((category) => {
     return option({ value: category.id }, category.name)
   })
@@ -32,12 +32,13 @@ export async function ModalAddPhoto() {
   // https://stackoverflow.com/a/66472691
   const handleFormChange = (e) => {
     // validation du formulaire
-    const fields = Array.from(
-      e.currentTarget.querySelectorAll('input:invalid,select:invalid')
+    const invalidFields = e.currentTarget.querySelectorAll(
+      'input:invalid,select:invalid'
     )
     const submit = e.currentTarget.querySelector('input[type="submit"]')
 
-    fields.length > 0
+    // désactiver le submit si au moins un champ du formulaire est invalide
+    invalidFields.length > 0
       ? submit.setAttribute('disabled', 'disabled')
       : submit.removeAttribute('disabled')
 
@@ -47,12 +48,14 @@ export async function ModalAddPhoto() {
       const [file] = e.target.files
       if (file) {
         imgPreviewElt.style.display = 'block'
+        // convertir l'objet File en URL pour l'image
         imgPreviewElt.src = URL.createObjectURL(file)
       }
     }
   }
 
   const handleFormSubmit = async (e) => {
+    // empêche le formulaire de recharger la page
     e.preventDefault()
 
     const result = await createWork(new FormData(e.currentTarget))
@@ -71,6 +74,7 @@ export async function ModalAddPhoto() {
     pEl.style.display = 'block'
   }
 
+  // création des éléments du formulaire
   const formElt = form(
     {
       onsubmit: handleFormSubmit,

@@ -8,7 +8,7 @@ import {
 } from '../../utils/HTMLElement.js'
 import { WorksGallery } from './WorksGallery.js'
 
-export function WorkCardEdit(work) {
+export function FigureEdit(work) {
   const figureEl = figure()
 
   const handleDeletionClick = async (id) => {
@@ -27,6 +27,17 @@ export function WorkCardEdit(work) {
     img({ src: work.imageUrl }),
     div(
       { className: 'icons' },
+      button(
+        {
+          className: 'btn-full-screen',
+        },
+        img({
+          src: 'assets/icons/full-screen.svg',
+          alt: 'full screen icon',
+          with: '16',
+          height: '16',
+        })
+      ),
       button(
         { onclick: () => handleDeletionClick(work.id) },
         img({

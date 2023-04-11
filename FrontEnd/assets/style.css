@@ -362,3 +362,8 @@ figcaption:has(.btn-edit) {
 #logout-link {
   display: none;
 }
+
+#introduction article .btn-edit {
+  position: absolute;
+  margin-top: -3rem;
+}

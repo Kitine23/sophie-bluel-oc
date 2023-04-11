@@ -1,6 +1,6 @@
 import { getWorks } from '../../utils/api.js'
 import { button, div, h2, hr } from '../../utils/HTMLElement.js'
-import { WorkCardEdit } from '../works/WorkCardEdit.js'
+import { FigureEdit } from '../works/FigureEdit.js'
 import { ModalAddPhoto } from './ModalAddPhoto.js'
 
 export async function ModalGalleryPhoto() {
@@ -10,11 +10,11 @@ export async function ModalGalleryPhoto() {
 
   const works = await getWorks()
 
-  const worksCards = works.map((work) => WorkCardEdit(work))
+  const figuresElts = works.map((work) => FigureEdit(work))
 
   modalBodyElt.replaceChildren(
     h2({ id: 'modal-title' }, 'Galerie photo'),
-    div({ className: 'modal-works' }, ...worksCards),
+    div({ className: 'modal-works' }, ...figuresElts),
     hr({ className: 'line' }),
     button(
       { id: 'modal-work-add', className: 'btn-submit', onclick: ModalAddPhoto },

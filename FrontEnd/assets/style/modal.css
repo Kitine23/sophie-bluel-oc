@@ -220,3 +220,12 @@ hr.line {
   height: 100%;
   object-fit: contain;
 }
+
+.modal-body figure .btn-full-screen {
+  margin-inline: 0.2rem;
+  display: none;
+}
+
+.modal-body figure:hover .btn-full-screen {
+  display: block;
+}
